@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("../partials/nav.ejs") %>
+    <main>
+    <h1>Enter a New Destination</h1>
+    <form action="/destinations" method="POST">
+        <label>Airport:
+            <input name="airport" placeholder="Enter Airport">
+            <input type="submit" value="Add Airport">
+        </label>
+    </form>
+    <table>
+        <% destinations.forEach(destination => { %>
+            <tr>
+                <td><%= destination.airport %></td>
+            </tr>
+            <% }) %>
+        </table>
+    <p><%= err  %></p>
+    </main>
+</body>
+</html>
