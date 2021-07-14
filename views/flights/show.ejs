@@ -14,6 +14,9 @@
     <p>Airport:<%= flight.airport %></p>
     <p>Flight:<%= flight.flightNo %></p>
     <p>Departs:<%= flight.departs %></p>
+    <p>Destinations: <% flight.destinations.forEach(destination => { %>
+        <%= destination.airport %>
+    <% }) %></p>
     <form
         action="/flights/<%=flight._id %>/tickets"
         method="POST"
@@ -28,10 +31,16 @@
         <p>Seats:<%= ticket.seat %></p>
         <p>Price:<%= ticket.price %></p>
         <% }) %>
-    <form>
-        <select>
-            <option value="<%= destination._id %>"></option>
+    <form action="/flights/<%= flight._id %>/destinations"
+          method="POST"
+    >
+        <select name="destinationId">
+            <% newDestination.forEach(destination => { %>
+                <% console.log(destination) %>
+            <option value="<%= destination._id %>"><%= destination.airport %></option>
+            <% }) %>
         </select>
+        <button type="submit">Submit</button>
     </form>
     </div>
 </body>
