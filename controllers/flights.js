@@ -4,6 +4,18 @@ export {
     newFlight as new,
     create,
     index,
+    show,
+    createTicket,
+}
+
+function createTicket(req, res) {
+    Flight.findById(req.params.id, function(err, flight){
+        if (err) return res.render('flight/show')
+        flight.tickets.push(req.body)
+        flight.save(function(err){
+            res.redirect(`/flights/${flight._id}`)
+        })
+    })
 }
 
 function newFlight(req, res) {
@@ -23,6 +35,14 @@ function index(req, res) {
         res.render('flights/index', {
         err,
         flights,
+        })
+    })
+}
+
+function show(req, res) {
+    Flight.findById(req.params.id).exec(function (err, flight){
+        res.render('flights/show', {
+            flight,
         })
     })
 }
