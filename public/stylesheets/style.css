@@ -1,6 +1,7 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: darkgray;
+  text-align: center;
 }
 
 main{
@@ -25,3 +26,4 @@ li {
   text-align: left;
   padding-top: 10px;
 }
+
