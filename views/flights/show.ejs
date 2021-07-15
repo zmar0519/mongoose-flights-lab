@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Document</title>
 </head>
+<%- include("../partials/nav.ejs") %>
 <body>
     <h1>Flight Details:</h1>
     <p>Airline:<%= flight.airline %></p>
@@ -23,7 +24,7 @@
     >
         <input placeholder='Enter Seat' name="seat" required pattern="[A-F][1-9]\d?">
         <input placeholder='Enter Price' type='number' name="price" />
-        <button>Submit</button>
+        <button type="button" class="btn btn-primary">Submit</button>
     </form>
     <div>
         <h2>Ticket Details:</h2>
@@ -40,7 +41,7 @@
             <option value="<%= destination._id %>"><%= destination.airport %></option>
             <% }) %>
         </select>
-        <button type="submit">Submit</button>
+        <button type="button" class="btn btn-primary" type="submit">Submit</button>
     </form>
     </div>
 </body>
